@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Book
 from .serializers import BookSerializer
-from drf_api.permissions import IsOwnerOrReadOnly
+from booknook_api.permissions import IsOwnerOrReadOnly
 
 
 class BookList(APIView):
