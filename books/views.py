@@ -1,4 +1,5 @@
-from rest_framework import generics, permissions
+from django.db.models import Count
+from rest_framework import generics, permissions, filters
 from booknook_api.permissions import IsOwnerOrReadOnly
 from .models import Book
 from .serializers import BookSerializer
@@ -11,7 +12,18 @@ class BookList(generics.ListCreateAPIView):
     """
     serializer_class = BookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Book.objects.all()
+    queryset = Book.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter
+    ]
+    ordering_fields = [
+        'likes_count',
+        'comments_count',
+        'likes__created_at',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -23,4 +35,7 @@ class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = BookSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Book.objects.all()
+    queryset = Book.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
