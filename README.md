@@ -15,10 +15,11 @@ It captures the idea of a community where readers can find refuge and camaraderi
     - [User Goal](#user-goal)
 - [Design](#design)
     - [Wireframes](#wireframes)
-    - [Colour Palette](#colour-palette)
-    - [Typography](#typography)
+    - [Database Schema - Entity Relationship Diagram](#database-schema-entity-relationship-diagram)
     - [Images](#images)
 - [Agile Methodologies](#agile-methodologies)
+    - [MoSCoW Prioritization](#moscow-prioritization)
+    - [User Stories](#user-stories)
 - [Features](#features)
     - [Languages  used](#languages--used)
     - [Navigation Bar](#navigation-bar)
@@ -73,11 +74,25 @@ I cerated the wireframes using Balsamiq tool.
 
 ### Images
 
-# Agile Methodologies
+# Agile Methodologies    
 
-### MoSCoW 
+Book Nook is my second project where I followed Agile planning methods by myself. I had done it for my portfolio project 4 and also participated in Code Institute's March Hackathon. These experiences helped me a lot as I already knew how it works. I used my Github Projects Board to plan and document all of my work. 
 
-### User Stories
+### MoSCoW Prioritization    
+
+I followed the MoSCoW Prioritization method for Book Nook project by identifying and labelling my:
+
+- Must Haves: the 'required', critical components of the project. Completing my 'Must Haves' helped me to reach the MVP (Minimum Viable Product) for this project early, allowing me to develop the project further than originally planned.
+
+- Should Haves: the components that are valuable to the project but not absolutely 'vital' at the MVP stage. The 'Must Haves' must receive priority over the 'Should Haves'.
+
+- Could Haves: these are the features that are a 'bonus' to the project, it would be nice to have them in this phase, but only if the most important issues have been completed first and time allows.
+
+- Won't Haves: the features or components that either no longer fit the project's brief or are of very low priority for this release.
+
+### User Stories    
+
+All the user stories have been added to the Project Board with the required fields like title, description, acceptance criteria, tasks, labels, project, milestone etc. The user stories were moved across the board through stages like To Do, In Progress and Done during the development of the project. Please find below screenshots for the user story board and issues:
 
 # Features
 ### Languages  used
@@ -170,7 +185,5 @@ I cerated the wireframes using Balsamiq tool.
 
   
 ### Content
-- 
--
--
--
+- Code Institute LMS walkthrough projects for DRF and React helped me understand and implement my project better.
+- My Mentor Martina for her guidance and the Slack Community for their support.
