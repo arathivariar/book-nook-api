@@ -67,7 +67,7 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     '*.gitpod.io',
     '8000-arathivaria-booknookapi-imlccgnxweu.ws-eu114.gitpod.io',
-    'https://book-nook-api-899ce4385a72.herokuapp.com/'
+    'book-nook-api-899ce4385a72.herokuapp.com'
 ]
 
 
