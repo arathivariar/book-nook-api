@@ -64,8 +64,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    '8000-arathivaria-booknookapi-imlccgnxweu.ws-eu111.gitpod.io',
-    os.environ.get('ALLOWED_HOST')
+    os.environ.get('ALLOWED_HOST'),
+    '*.gitpod.io',
+    '8000-arathivaria-booknookapi-imlccgnxweu.ws-eu114.gitpod.io'
     #'book-nook-api.herokuapp.com'
 ]
 
