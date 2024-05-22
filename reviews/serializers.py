@@ -29,14 +29,14 @@ class ReviewSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
-    def get_like_id(self, obj):
+    """ def get_like_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(
                 owner=user, review=obj
             ).first()
             return like.id if like else None
-        return None
+        return None """
 
     class Meta:
         model = Review
