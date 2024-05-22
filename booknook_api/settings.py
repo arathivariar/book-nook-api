@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import re
 from pathlib import Path
-import os
 import dj_database_url
+import re
+import os
 
 if os.path.exists('env.py'):
     import env
@@ -56,11 +56,10 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-60jrwnyeanp4i_&p5vmk&bm_56=w)@n9(!j171ch+)-s407=_5'
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+#DEBUG = False
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
@@ -160,7 +159,6 @@ else:
      DATABASES = {
          'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
      }
-     #print('connected to DB')
 
 
 # Password validation
