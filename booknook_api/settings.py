@@ -47,6 +47,7 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = "None"
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'booknook_api.serializers.CurrentUserSerializer'
@@ -60,13 +61,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
-# DEBUG = 'DEV' in os.environ
-DEBUG = 'DEBUG' in os.environ
+DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     '*.gitpod.io',
-    '8000-arathivaria-booknookapi-imlccgnxweu.ws-eu114.gitpod.io',
+    '.herokuapp.com',
     'book-nook-api-899ce4385a72.herokuapp.com'
 ]
 
