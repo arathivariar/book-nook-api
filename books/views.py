@@ -14,7 +14,7 @@ class BookList(generics.ListCreateAPIView):
     serializer_class = BookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Book.objects.annotate(
-        likes_count=Count('likes', distinct=True),
+        #likes_count=Count('likes', distinct=True),
         #comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
@@ -24,7 +24,7 @@ class BookList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         'owner__followed__owner__profile',
-        'likes__owner__profile',
+        #'likes__owner__profile',
         'owner__profile',
     ]
     search_fields = [
@@ -35,7 +35,7 @@ class BookList(generics.ListCreateAPIView):
     ordering_fields = [
         'likes_count',
         #'comments_count',
-        'likes__created_at',
+        #'likes__created_at',
     ]
 
     def perform_create(self, serializer):
@@ -49,6 +49,6 @@ class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BookSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Book.objects.annotate(
-        likes_count=Count('likes', distinct=True),
+        #likes_count=Count('likes', distinct=True),
         #comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')

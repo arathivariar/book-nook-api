@@ -6,13 +6,13 @@ from likes.models import Like
 class LikeSerializer(serializers.ModelSerializer):
     """
     Serializer for the Like model
-    The create method handles the unique constraint on 'owner' and 'book'
+    The create method handles the unique constraint on 'owner' and 'review'
     """
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Like
-        fields = ['id', 'created_at', 'owner', 'book']
+        fields = ['id', 'created_at', 'owner', 'review']
 
     def create(self, validated_data):
         try:
