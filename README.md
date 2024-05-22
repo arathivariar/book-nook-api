@@ -84,7 +84,7 @@ All the user stories have been added to the Project Board with the required fiel
 There are the APIs inside Book Nook: Profiles, Reviews, Comments, Likes and Followers. All of these have various API endpoints.   
 
 
-![Link to user story board](https://github.com/users/arathivariar/projects/3)   
+[Link to user story board](https://github.com/users/arathivariar/projects/3)   
 
 
 # Languages  used
