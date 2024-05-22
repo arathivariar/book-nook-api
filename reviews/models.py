@@ -14,7 +14,7 @@ class Review(models.Model):
     content = models.TextField(blank=True)
     ratings = models.CharField(max_length=255)
     image = models.ImageField(
-        upload_to='images/', default='../default_post_acvybp', blank=True
+        upload_to='images/', default='../book_nook/default_post_acvybp', blank=True
     )
 
     class Meta:
