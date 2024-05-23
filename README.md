@@ -65,6 +65,8 @@ Database schema was created using [DrawSQL](https://drawsql.app/). The schema wa
 
 Book Nook is my second project where I followed Agile planning methods by myself. I had done it for my portfolio project 4 and also participated in Code Institute's March Hackathon. These experiences helped me a lot as I already knew how it works. I used my Github Projects Board to plan and document all of my work. 
 
+[Link to user story board](https://github.com/users/arathivariar/projects/3)    
+
 ### MoSCoW Prioritization    
 
 I followed the MoSCoW Prioritization method for Book Nook project by identifying and labelling my:
@@ -89,7 +91,8 @@ There are the APIs inside Book Nook: Profiles, Reviews, Comments, Likes and Foll
 
 # Languages  used
 - Python 
-- Django Rest Framework     
+- Django Rest Framework   
+- Postgre SQL Database  
 
 
 
@@ -115,14 +118,14 @@ There are no unfixed bugs in the API as per my knowledge. I have fixed many issu
 
 
 # Libraries and Packages used
-- cloudinary and django-cloudinary-storage to integrate the application with Cloudinary
-- gunicorn : Python WSGI HTTP Server for UNIX
-- psycopg2 : PostgreSQL database adapter
-- Pillow : Python Imaging Library
-- django-allauth : authentication, registration, account management
-- dj-rest-auth : REST API endpoints
-- django-cors-headers : adds Cross-Origin-Resource Sharing (CORS) headers to responses
-- djangorestframework-simplejwt : JSON web token authentication
+- [cloudinary](https://pypi.org/project/cloudinary/) and [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) to integrate the application with Cloudinary
+- [gunicorn](https://pypi.org/project/gunicorn/) : Python WSGI HTTP Server for UNIX
+- [psycopg2](https://pypi.org/project/psycopg2/) : PostgreSQL database adapter
+- [Pillow](https://pypi.org/project/pillow/) : Python Imaging Library
+- [django-allauth](https://docs.allauth.org/en/latest/) : authentication, registration, account management
+- [dj-rest-auth](https://dj-rest-auth.readthedocs.io/en/latest/) : REST API endpoints
+- [django-cors-headers](https://pypi.org/project/django-cors-headers/) : adds Cross-Origin-Resource Sharing (CORS) headers to responses
+- [djangorestframework-simplejwt](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/) : JSON web token authentication
 
 
 # Deployment    
@@ -146,7 +149,7 @@ The first step is to create a new repository, using the Code Institute Template.
 
 ### Database Setup    
 
-You can use a database of your choice, following are the instructions if you use ElephantSQL.
+You can use a database of your choice, following are the instructions if you use [ElephantSQL](https://customer.elephantsql.com/login)
 
 1. Log in to your account
 2. Click Create New Instance
@@ -157,13 +160,13 @@ You can use a database of your choice, following are the instructions if you use
 
 ### Cloudinary Setup    
 
-1. Log in to your Cloudinary account
+1. Log in to your [Cloudinary](https://console.cloudinary.com/users/login) account
 2. At the dashboard, copy the link from the API Environment variable    
 
 
 ### Heroku Setup    
 
-1. Log in to your Heruko account
+1. Log in to your [Heruko](https://dashboard.heroku.com) account
 2. On the dashboard click New - Create new app
 3. Give the app a unique name
 4. Select the region closest to you and click Create app
@@ -180,7 +183,7 @@ You can use a database of your choice, following are the instructions if you use
 
 Forking creates a copy of the project on GitHub. Follow these steps to fork this repository:
 
-1. Log in to your GitHub account and navigate to Wissen-API repository.
+1. Log in to your GitHub account and navigate to [Book Nook API](https://github.com/arathivariar/book-nook-api) repository.
 2. Click the Fork button on the top right of the repository.
 3. You can now open the forked copy of this project as your own repository.
 4. Follow the above steps to work on the project.
