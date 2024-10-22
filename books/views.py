@@ -2,8 +2,9 @@ from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from booknook_api.permissions import IsOwnerOrReadOnly
-from .models import Book
-from .serializers import BookSerializer
+from .models import Book, Author, Genre
+from .serializers import AuthorSerializer, BookSerializer, GenreSerializer
+from .filters import BookFilter
 
 
 class BookList(generics.ListCreateAPIView):
@@ -13,10 +14,8 @@ class BookList(generics.ListCreateAPIView):
     """
     serializer_class = BookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Book.objects.annotate(
-        #likes_count=Count('likes', distinct=True),
-        #comments_count=Count('comment', distinct=True)
-    ).order_by('-created_at')
+    queryset = Book.objects.all().order_by('-created_at')
+    filterset_class = BookFilter
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
@@ -24,31 +23,32 @@ class BookList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         'owner__followed__owner__profile',
-        #'likes__owner__profile',
         'owner__profile',
     ]
     search_fields = [
         'owner__username',
         'title',
         'author',
+        'genre',
     ]
     ordering_fields = [
-        #'likes_count',
-        #'comments_count',
-        #'likes__created_at',
+        'title',
+        'created_at',
     ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
 
-class BookDetail(generics.RetrieveUpdateDestroyAPIView):
-    """
-    Retrieve a book and edit or delete it if you own it.
-    """
+class BookDetail(generics.RetrieveAPIView):
+    """Get a specific book"""
+
+    queryset = Book.objects
     serializer_class = BookSerializer
-    permission_classes = [IsOwnerOrReadOnly]
-    queryset = Book.objects.annotate(
-        #likes_count=Count('likes', distinct=True),
-        #comments_count=Count('comment', distinct=True)
-    ).order_by('-created_at')
+
+
+class GenresList(generics.ListAPIView):
+    """Get all genres"""
+
+    queryset = Genre.objects.all().order_by('name')
+    serializer_class = GenreSerializer

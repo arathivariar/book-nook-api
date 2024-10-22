@@ -1,14 +1,25 @@
 from rest_framework import serializers
-from books.models import Book
-#from likes.models import Like
+from .models import Book, Author, Genre
 
+
+class GenreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Genre
+        fields = ['id', 'name', 'description']
+
+
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = ['id', 'full_name', 'description']
 
 class BookSerializer(serializers.ModelSerializer):
+    authors = AuthorSerializer(read_only=True, many=True)
+    genres = GenreSerializer(read_only=True, many=True)
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
-    #like_id = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -27,20 +38,7 @@ class BookSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
-    """ def get_like_id(self, obj):
-        user = self.context['request'].user
-        if user.is_authenticated:
-            like = Like.objects.filter(
-                owner=user, book=obj
-            ).first()
-            return like.id if like else None
-        return None """
 
     class Meta:
         model = Book
-        fields = [
-            'id', 'title', 'author', 'owner', 'is_owner', 'profile_id',
-            'profile_image', 'created_at', 'updated_at',
-             'genre', 'language', 'ratings', 'image', 'image_filter',
-             #'like_id',
-        ]
+        fields = '__all__'
