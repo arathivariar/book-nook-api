@@ -20,5 +20,5 @@ class BookFilter(FilterSet):
     class Meta:
         model = Book
 
-        # Enable filter by title and genre
-        fields = {'title': ['icontains'], 'genres__name': ['exact']}
+        # Enable filter by title
+        fields = {'title': ['icontains']}
